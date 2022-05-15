@@ -4,14 +4,14 @@ echo 'Enter your preferred MySQL root password'
 read MYSQL_PASS
 
 ##################################################################
-# 4 - UPDATE THE SYSTEM
+# 1 - UPDATE THE SYSTEM
 ##################################################################
 echo -e "\033[0;33m \n>\n> Updating system packages \n>\n\033[0m"
 apt -y update
 apt -y -o DPkg::options::="--force-confdef" upgrade
 
 ##################################################################
-# 11 - INSTALL NGINX AND MARIADB
+# 2 - INSTALL NGINX AND MARIADB
 ##################################################################
 echo -e "\033[0;33m \n>\n> Installing nginx and mariadb \n>\n\033[0m"
 apt -y install nginx
@@ -19,7 +19,7 @@ apt -y install mariadb-server mariadb-client libmysqlclient-dev
 
 
 ##################################################################
-# 12 - CHANGE DATABASE CONFIGURATIONS TO SUIT ERPNEXT AND FRAPPE
+# 3 - CHANGE DATABASE CONFIGURATIONS TO SUIT ERPNEXT AND FRAPPE
 ##################################################################
 sed -i 's/\[mysqld\]/[mysqld]\ncharacter-set-client-handshake = FALSE/' /etc/mysql/mariadb.conf.d/50-server.cnf
 sed -i 's/\[mysql\]/[mysql]\ndefault-character-set = utf8mb4/' /etc/mysql/mariadb.conf.d/50-server.cnf
@@ -28,7 +28,7 @@ systemctl restart mysqld
 
 
 ##################################################################
-# 13 - SECURING OUR DATABASE
+# 4 - SECURING OUR DATABASE
 ##################################################################
 echo -e "\033[0;33m \n>\n> Securing database \n>\n\033[0m"
 mysql -e "DELETE FROM mysql.user WHERE User='';"
