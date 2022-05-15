@@ -1,3 +1,11 @@
+
+##################################################################
+# THIS SCRIPT IS PART OF THE MAJOR SCRIPT TO AUTOMATICALLY INSTALL ERPNEXT IN ANY UBUNTU SERVER.
+# THE SCRIPT IS WRITTEN BY KARANI, CHIEF OF ENGINEERING AT UPEOSOFT.COM.
+# KARANI ALSO HAS A BLOG AT CODEWITHKARANI.COM WHERE HE SHARES KNOWLEDGE ANS SELLS SOME USEFUL RESOURCES
+##################################################################
+
+
 MYSQL_PASS=''
 
 echo 'Enter your preferred MySQL root password'
@@ -39,3 +47,9 @@ mysql -e "UPDATE mysql.user SET plugin = 'mysql_native_password' WHERE user = 'r
 mysql -e "UPDATE mysql.user SET Password=PASSWORD('${MYSQL_PASS}') WHERE User='root';"
 mysql -e "FLUSH PRIVILEGES;"
 echo -e "Database password = ${MYSQL_PASS} \n"
+
+
+##################################################################
+# 5 - CONGRATULATIONS!!!!!
+##################################################################
+echo -e "\033[0;33m \n>\n> All the best from CODEWITHKARANI.COM and UPEOSOFT.COM \n>\n\033[0m"
